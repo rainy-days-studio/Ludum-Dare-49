@@ -5,20 +5,24 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class HighlightObj : MonoBehaviour
 {
-    public GameObject highlight;
+    SpriteRenderer Renderer;
 
     private void Awake()
     {
-        highlight.SetActive(false);
+        Renderer = GetComponent<SpriteRenderer>();
+        Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0f);
     }
 
     private void OnMouseEnter()
     {
-        highlight.SetActive(true);
+        Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0.1f);
     }
 
     private void OnMouseExit()
     {
-        highlight.SetActive(false);
+        Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0f);
     }
+
+
+
 }
