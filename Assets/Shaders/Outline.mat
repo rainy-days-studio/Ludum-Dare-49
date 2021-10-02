@@ -36,7 +36,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_af31f4e7d88d4cf291a27119f871588a: 0.02
     - _Bounce: 0
+    - _BounceFactor: 0
     - _OutlineThickness: 0.1
     m_Colors:
     - _OutlineColour: {r: 1, g: 1, b: 1, a: 0}
