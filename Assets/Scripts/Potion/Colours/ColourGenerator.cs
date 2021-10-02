@@ -34,6 +34,8 @@ public class ColourGenerator : Manager<ColourGenerator>
         interactions.Add(new ColourChange() { input1 = colours[6], input2 = colours[2], output = colours[1] });
         interactions.Add(new ColourChange() { input1 = colours[6], input2 = colours[4], output = colours[7] });
         interactions.Add(new ColourChange() { input1 = colours[6], input2 = colours[8], output = colours[3] });
+
+        IngredientGenerator.Instance.init();
     }
 
     public List<Colour> getColours()

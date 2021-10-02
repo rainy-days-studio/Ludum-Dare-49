@@ -18,10 +18,15 @@ public class IngredientGenerator : Manager<IngredientGenerator>
     // List of ingredients that have been generated
     private List<Ingredient> ingredients;
 
-    // On script awake intialise variables
+    // On script awake read text
     public void Start()
     {
         getNamesFromText();
+    }
+
+    // Initialise variables
+    public void init()
+    {
         generateIngredients();
     }
 
