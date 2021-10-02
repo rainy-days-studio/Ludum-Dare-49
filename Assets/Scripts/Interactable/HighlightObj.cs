@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class HighlightObj : MonoBehaviour
 {
+    public bool draggable;
     public bool bounce;
     public float bounceFactor;
     bool held;
@@ -50,11 +51,13 @@ public class HighlightObj : MonoBehaviour
 
     private void OnMouseDown()
     {
-        held = true;
+        if (draggable)
+            held = true;
     }
 
     private void OnMouseUp()
     {
-        held = false;
+        if (draggable)
+            held = false;
     }
 }
