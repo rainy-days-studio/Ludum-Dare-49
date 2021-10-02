@@ -15,6 +15,8 @@ public class HighlightObj : MonoBehaviour
     {
         Renderer = GetComponent<SpriteRenderer>();
         Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0f);
+        Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);
+
     }
 
     private void Update()
@@ -30,16 +32,20 @@ public class HighlightObj : MonoBehaviour
     private void OnMouseEnter()
     {
         Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0.1f);
+        /*
         if (bounce)
             Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);
+        */
 
     }
 
     private void OnMouseExit()
     {
         Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0f);
+        /*
         if (bounce)
             Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), 0f);
+        */
     }
 
     private void OnMouseDown()
