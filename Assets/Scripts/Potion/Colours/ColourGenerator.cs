@@ -8,7 +8,7 @@ public class ColourGenerator : Manager<ColourGenerator>
     List<Colour> colours;
     List<ColourChange> interactions;
 
-    private void Awake()
+    private void Start()
     {
         colours = new List<Colour>();
         interactions = new List<ColourChange>();

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientGenerator : MonoBehaviour
+public class IngredientGenerator : Manager<IngredientGenerator>
 {
     // Number of ingredients to generate
     [SerializeField]
@@ -19,7 +19,7 @@ public class IngredientGenerator : MonoBehaviour
     private List<Ingredient> ingredients;
 
     // On script awake intialise variables
-    public void Awake()
+    public void Start()
     {
         getNamesFromText();
         generateIngredients();
