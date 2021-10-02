@@ -9,24 +9,18 @@ public class Ingredient
     private Sprite sprite;
 
     // How ingredient interacts with potion
-    private Color flatColour;
-    private Color bubblingColour;
+    private Colour colour;
 
-    public Ingredient(string name, Sprite sprite, Color flatColour, Color bubblingColour)
+    public Ingredient(string name, Sprite sprite, Colour colour)
     {
         this.name = name;
         this.sprite = sprite;
-        this.flatColour = flatColour;
-        this.bubblingColour = bubblingColour;
+        this.colour = colour;
     }
 
-    public Color getPotionEffect(PotionFizziness potionFizziness)
+    public Colour getPotionEffect()
     {
-        Color colour = Color.clear;
-        if (potionFizziness == PotionFizziness.flat)
-            colour += flatColour;
-        else
-            colour += bubblingColour;
+        Colour outputColour = colour;
 
         return colour;
     }
