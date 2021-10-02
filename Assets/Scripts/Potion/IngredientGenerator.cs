@@ -40,8 +40,8 @@ public class IngredientGenerator : Manager<IngredientGenerator>
         foreach (Colour colour in ColourGenerator.Instance.getColours())
         {
             // Random indexes
-            int nameIndex = Random.Range(0, names.Count - 1);
-            int spriteIndex = Random.Range(0, sprites.Count - 1);
+            int nameIndex = Random.Range(0, names.Count);
+            int spriteIndex = Random.Range(0, sprites.Count);
             ingredients.Add(new Ingredient(names[nameIndex], sprites[spriteIndex], colour));
             names.RemoveAt(nameIndex);
             sprites.RemoveAt(spriteIndex);
