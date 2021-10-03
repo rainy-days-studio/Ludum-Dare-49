@@ -61,10 +61,11 @@ public class ColourGenerator : Manager<ColourGenerator>
                     string input1 = colourNames[i];
                     string output = colourNames[l];
                     string input2 = "";
-                    do
-                    {
+
+                    while(true) 
+                    { 
                         if (availableColours.Count == 0)
-                            availableColours.Concat(colourNames);
+                            availableColours.AddRange(colourNames);
 
                         input2 = availableColours[Random.Range(0, availableColours.Count)];
                         if (!input2.Equals(input1) && !input2.Equals(output))
@@ -79,7 +80,7 @@ public class ColourGenerator : Manager<ColourGenerator>
                             {
                                 input2 = availableColours[1];
                                 if (input2.Equals(input1) || input2.Equals(output))
-                                    availableColours.Concat(colourNames);
+                                    availableColours.AddRange(colourNames);
                                 else
                                 {
                                     availableColours.Remove(input2);
@@ -93,13 +94,12 @@ public class ColourGenerator : Manager<ColourGenerator>
                             }
                         }
                         else if (availableColours.Count == 1)
-                            availableColours.Concat(availableColours);
+                            availableColours.AddRange(colourNames);
 
-                    } while (true);
+                    }
 
                     interactions.Add(new ColourChange() { input1 = colours[input1], input2 = colours[input2], output = colours[output] });
-                }
-                    
+                } 
             }
         }
     }
