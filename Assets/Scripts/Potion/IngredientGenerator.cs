@@ -42,7 +42,7 @@ public class IngredientGenerator : Manager<IngredientGenerator>
     {
         ingredients = new List<Ingredient>();
 
-        foreach (Colour colour in ColourGenerator.Instance.getColours())
+        foreach (Colour colour in ColourGenerator.Instance.getColours().Values)
         {
             // Random indexes
             int nameIndex = Random.Range(0, names.Count);
