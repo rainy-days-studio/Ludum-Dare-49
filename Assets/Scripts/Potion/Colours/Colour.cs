@@ -9,18 +9,11 @@ public struct ColourChange
 
 public class Colour
 {
-    private string name;
     private Color unityColour;
 
-    public Colour(string name, Color unityColour)
+    public Colour(Color unityColour)
     {
-        this.name = name;
         this.unityColour = unityColour;
-    }
-
-    public string getName()
-    {
-        return name;
     }
 
     public Color getUnityColour()
