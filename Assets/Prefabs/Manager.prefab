@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2430055328179750262}
   - component: {fileID: 2430055328179750261}
   - component: {fileID: 3234636569040831618}
+  - component: {fileID: 397563712}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -84,6 +85,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7a05a57f37785c944bc4563619c116c7, type: 3}
   - {fileID: 21300000, guid: fdc50556c42408648a7c4b5a701f01c7, type: 3}
   - {fileID: 21300000, guid: 8a1a57b28b0e884418447db41085ae2d, type: 3}
+  ingredientObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   nameFile: {fileID: 4900000, guid: 222ceb0bd56dfba4781900542b3add82, type: 3}
 --- !u!114 &3234636569040831618
 MonoBehaviour:
@@ -98,3 +110,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 0.1
+  worldWidth: 480
+  worldHeight: 300
+  horizontalOffset: 55
+  verticalOffset: 100
+--- !u!114 &397563712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2430055328179750258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76324ef440e786f4ebe5cde0b1125d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

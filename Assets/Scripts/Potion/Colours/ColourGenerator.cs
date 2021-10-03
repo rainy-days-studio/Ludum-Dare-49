@@ -113,4 +113,11 @@ public class ColourGenerator : Manager<ColourGenerator>
     {
         return interactions;
     }
+
+    // Get a random colour
+    public Colour getRandomColour()
+    {
+        string[] colourNames = colours.Keys.ToArray();
+        return colours[colourNames[Random.Range(0, colourNames.Length)]];
+    }
 }

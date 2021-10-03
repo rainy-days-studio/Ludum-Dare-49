@@ -10,6 +10,9 @@ public class IngredientGenerator : Manager<IngredientGenerator>
     // Sprites to be used for ingredients
     [SerializeField]
     private List<Sprite> sprites;
+    // Ingredient objects
+    [SerializeField]
+    private IngredientObject[] ingredientObjects;
     // Text file containing names of ingredients
     [SerializeField]
     private TextAsset nameFile;
@@ -51,6 +54,18 @@ public class IngredientGenerator : Manager<IngredientGenerator>
             names.RemoveAt(nameIndex);
             sprites.RemoveAt(spriteIndex);
         }
+
+        int max = 0;
+
+        if (ingredients.Count > ingredientObjects.Length)
+            max = ingredientObjects.Length;
+        else
+            max = ingredients.Count;
+
+        for (int i = 0; i < max; i++)
+            ingredientObjects[i].init(ingredients[i]);
+
+        PotionManager.Instance.activatePotion();
     }
 
     // Get generated ingredients
