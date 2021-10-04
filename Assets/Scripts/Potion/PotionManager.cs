@@ -53,10 +53,9 @@ public class PotionManager : Manager<PotionManager>
     public void checkPotion(Colour colour, int ingredients)
     {
         usedIngredientsText.text = ingredients.ToString();
-        if (targetColour == colour || ingredients >= maxIngredients)
-        {
+        if (targetColour == colour)
             activePotion.finish();
-            activatePotion();
-        }
+        if (ingredients >= maxIngredients)
+            activePotion.stopInteracting();
     }
 }

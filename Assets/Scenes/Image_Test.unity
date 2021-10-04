@@ -2539,6 +2539,8 @@ GameObject:
   - component: {fileID: 1746709161}
   - component: {fileID: 1746709162}
   - component: {fileID: 1746709163}
+  - component: {fileID: 1746709164}
+  - component: {fileID: 1746709165}
   m_Layer: 0
   m_Name: Square Potion
   m_TagString: Untagged
@@ -2703,6 +2705,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounce: 0
   bounceFactor: 0
+--- !u!95 &1746709164
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746709154}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75dee0e72e4f5824d924530818526f55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &1746709165
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746709154}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6f17d76f3a265814a830509f08d24dd7, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1748740752
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,6 +3080,8 @@ GameObject:
   - component: {fileID: 1886651003}
   - component: {fileID: 1886651009}
   - component: {fileID: 1886651010}
+  - component: {fileID: 1886651011}
+  - component: {fileID: 1886651012}
   m_Layer: 0
   m_Name: Triangle Potion
   m_TagString: Untagged
@@ -3208,6 +3246,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounce: 0
   bounceFactor: 0
+--- !u!95 &1886651011
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886651001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75dee0e72e4f5824d924530818526f55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &1886651012
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886651001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6f17d76f3a265814a830509f08d24dd7, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1916344690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,6 +3555,8 @@ GameObject:
   - component: {fileID: 2050136258}
   - component: {fileID: 2050136264}
   - component: {fileID: 2050136265}
+  - component: {fileID: 2050136267}
+  - component: {fileID: 2050136266}
   m_Layer: 0
   m_Name: Circle Potion
   m_TagString: Untagged
@@ -3647,6 +3721,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounce: 0
   bounceFactor: 0
+--- !u!111 &2050136266
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050136256}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6f17d76f3a265814a830509f08d24dd7, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &2050136267
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050136256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75dee0e72e4f5824d924530818526f55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2065190082
 GameObject:
   m_ObjectHideFlags: 0
