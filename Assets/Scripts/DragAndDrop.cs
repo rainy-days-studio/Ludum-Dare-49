@@ -9,11 +9,14 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     private new RectTransform transform;
     // Canvas this object is rendered on
     private Canvas canvas;
+    // Canvas group of object
+    private CanvasGroup canvasGroup;
     // Physics manager
     private PhysicsManager physics;
     // Rigidbody
     private Rigidbody2D rigidBody;
     // Colliding with table
+    [SerializeField]
     private bool touchingTable;
     // Being dragged
     private bool dragging;
@@ -23,9 +26,9 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     {
         transform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
+        canvasGroup = GetComponent<CanvasGroup>();
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.freezeRotation = true;
-        touchingTable = true;
         dragging = false;
     }
 
@@ -48,11 +51,13 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         dragging = true;
         rigidBody.gravityScale = 0;
         rigidBody.velocity = Vector2.zero;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         dragging = false;
+        canvasGroup.blocksRaycasts = true;
         if (!touchingTable)
             rigidBody.gravityScale = physics.getGravity();
     }

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Potion : MonoBehaviour
+public class Potion : MonoBehaviour, IDropHandler
 {
     // Image of potion liquid
     [SerializeField]
@@ -67,9 +68,9 @@ public class Potion : MonoBehaviour
     }
 
     // Mix ingredient if other object is an ingredient
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnDrop(PointerEventData eventData)
     {
-        if (other.gameObject.tag.Equals("Ingredient"))
-            addIngredient(other.gameObject.GetComponent<IngredientObject>().consume());
+        if (eventData.pointerDrag.tag.Equals("Ingredient"))
+            addIngredient(eventData.pointerDrag.GetComponent<IngredientObject>().consume());
     }
 }

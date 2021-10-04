@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngredientObject : MonoBehaviour
 {
     // Ingredient this object uses
     private Ingredient ingredient;
-    private SpriteRenderer sprite;
+    private Image image;
 
     // Initialise variables
     void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
         gameObject.SetActive(false);
     }
 
@@ -19,7 +20,7 @@ public class IngredientObject : MonoBehaviour
     public void init(Ingredient ingredient)
     {
         this.ingredient = ingredient;
-        sprite.sprite = ingredient.getSprite();
+        image.sprite = ingredient.getSprite();
         gameObject.SetActive(true);
     }
 

@@ -1,33 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class HighlightObj : MonoBehaviour
 {
-    public bool draggable;
-    public bool bounce;
-    public float bounceFactor;
-    bool held;
+    [SerializeField]
+    private bool bounce;
+    [SerializeField]
+    private float bounceFactor;
 
-    SpriteRenderer Renderer;
+    private Image Renderer;
 
     private void Awake()
     {
-        Renderer = GetComponent<SpriteRenderer>();
+        Renderer = GetComponent<Image>();
+        Material mat = Instantiate(Renderer.material);
+        Renderer.material = mat;
         Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0f);
         Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);
 
-    }
-
-    private void Update()
-    {
-        if (held)
-        {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 10f;
-            transform.position = Camera.main.ScreenToWorldPoint(mousePos);
-        }
     }
 
     private void OnMouseEnter()
@@ -51,13 +44,10 @@ public class HighlightObj : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (draggable)
-            held = true;
-    }
-
-    private void OnMouseUp()
-    {
-        if (draggable)
-            held = false;
-    }
+        if (bounce)
+        {
+            bounce = false;
+            Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), 0);
+        }
+    } 
 }
