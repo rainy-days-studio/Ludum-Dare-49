@@ -23,11 +23,15 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     {
         transform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
-        physics = PhysicsManager.Instance;
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.freezeRotation = true;
         touchingTable = true;
         dragging = false;
+    }
+
+    private void Start()
+    {
+        physics = PhysicsManager.Instance;
     }
 
     public void OnDrag(PointerEventData eventData)
