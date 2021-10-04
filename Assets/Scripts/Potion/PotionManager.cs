@@ -37,7 +37,7 @@ public class PotionManager : Manager<PotionManager>
 
         ColourResult check = ColourGraph.Instance.checkColourPath(potionColour.getName(), targetColour.getName());
 
-        maxIngredients = Mathf.RoundToInt((check.pathLength * 4) / (check.numOfIncoming / 3));
+        maxIngredients = Mathf.RoundToInt(((float) check.pathLength * 4) / (((float)check.numOfIncoming) / 3));
     }
 
     // Check if the potion is correct or over the max
