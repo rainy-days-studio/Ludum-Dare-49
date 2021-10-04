@@ -9,16 +9,23 @@ public struct ColourChange
 
 public class Colour
 {
+    private string name;
     private Color unityColour;
 
-    public Colour(Color unityColour)
+    public Colour(string name, Color unityColour)
     {
+        this.name = name;
         this.unityColour = unityColour;
     }
 
     public Color getUnityColour()
     {
         return unityColour;
+    }
+
+    public string getName()
+    {
+        return name;
     }
 
     // Overload plus operator so it can be used to combine colours

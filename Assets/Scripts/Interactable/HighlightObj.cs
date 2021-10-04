@@ -1,38 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class HighlightObj : MonoBehaviour
 {
-    public bool draggable;
-    public bool bounce;
-    public float bounceFactor;
-    bool held;
+    [SerializeField]
+    private float outlineThickness = 0.1f;
+    [SerializeField]
+    private bool bounce;
+    [SerializeField]
+    private float bounceFactor;
 
-    SpriteRenderer Renderer;
+    private Image Renderer;
 
     private void Awake()
     {
-        Renderer = GetComponent<SpriteRenderer>();
+        Renderer = GetComponent<Image>();
+        Material mat = Instantiate(Renderer.material);
+        Renderer.material = mat;
         Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0f);
         Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);
-
-    }
-
-    private void Update()
-    {
-        if (held)
-        {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 10f;
-            transform.position = Camera.main.ScreenToWorldPoint(mousePos);
-        }
     }
 
     private void OnMouseEnter()
     {
-        Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0.1f);
+        Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), outlineThickness);
         /*
         if (bounce)
             Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);
@@ -49,15 +43,20 @@ public class HighlightObj : MonoBehaviour
         */
     }
 
+    // When clicked disable bouncing
     private void OnMouseDown()
     {
-        if (draggable)
-            held = true;
+        if (bounce)
+        {
+            bounce = false;
+            Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), 0);
+        }
     }
 
-    private void OnMouseUp()
+    // When reset reactivate bouncing
+    public void reset()
     {
-        if (draggable)
-            held = false;
+        bounce = true;
+        Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);
     }
 }

@@ -1,24 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Potion : MonoBehaviour
+public class Potion : MonoBehaviour, IDropHandler
 {
-    // Image of potion liquid
+    // Images of potion
     [SerializeField]
     private Image liquid;
+    private Image bottle;
+    private Sprite defaultBottle;
+    private Sprite defaultLiquid;
     // Current colour of the potion
     private Colour colour;
-    // Current fizziness of the potion
-    private PotionFizziness fizziness;
-
     // Number of ingredients
     private int ingredients;
+    // Drag and drop component
+    private DragAndDrop dragAndDrop;
+    // Whether the object can be interacted with
+    private bool interactable;
+    // Animation to play when smashing
+    private Animator animator;
 
     // Set variables
     private void Awake()
     {
+        bottle = GetComponent<Image>();
+        defaultBottle = bottle.sprite;
+        defaultLiquid = liquid.sprite;
+        dragAndDrop = GetComponent<DragAndDrop>();
+        animator = GetComponent<Animator>();
+        animator.enabled = false;
+        interactable = false;
+        dragAndDrop.enabled = false;
         gameObject.SetActive(false);
     }
 
@@ -30,7 +45,10 @@ public class Potion : MonoBehaviour
 
         liquid.color = colour.getUnityColour();
 
+        interactable = true;
+
         gameObject.SetActive(true);
+        dragAndDrop.enabled = true;
     }
 
     // Add an ingredient returns true if potion explodes
@@ -41,27 +59,34 @@ public class Potion : MonoBehaviour
 
         liquid.color = colour.getUnityColour();
 
+        PotionManager.Instance.checkPotion(colour, ingredients);
+        AudioManager.instance.Play("Bubbles");
         return false;
     }
 
-    // Stir the potion
-    public void stir()
+    // Set object to no longer interact
+    public void stopInteracting()
     {
-        if (fizziness == PotionFizziness.bubbling)
-            fizziness = PotionFizziness.flat;
+        interactable = false;
+        dragAndDrop.enabled = false;
+        animator.enabled = true;
     }
-    
-    // Shake the potion
-    public void shake()
+
+    // When potion is finished deactivate
+    public void finish()
     {
-        if (fizziness == PotionFizziness.flat)
-            fizziness = PotionFizziness.bubbling;
+        animator.enabled = false;
+        dragAndDrop.setReset();
+        gameObject.SetActive(false);
+        bottle.sprite = defaultBottle;
+        liquid.sprite = defaultLiquid;
+        PotionManager.Instance.activatePotion();
     }
 
     // Mix ingredient if other object is an ingredient
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnDrop(PointerEventData eventData)
     {
-        if (other.gameObject.tag.Equals("Ingredient"))
-            addIngredient(other.gameObject.GetComponent<IngredientObject>().consume());
+        if (eventData.pointerDrag.tag.Equals("Ingredient") && interactable)
+            addIngredient(eventData.pointerDrag.GetComponent<IngredientObject>().consume());
     }
 }

@@ -27,16 +27,16 @@ public class ColourGenerator : Manager<ColourGenerator>
     private void generateColours()
     {
         colours = new Dictionary<string, Colour>();
-        colours.Add("Blue", new Colour(Color.blue));
-        colours.Add("Red", new Colour(Color.red));
-        colours.Add("Green", new Colour(Color.green));
-        colours.Add("Purple", new Colour(new Color(160, 0, 160)));
-        colours.Add("Grey", new Colour(Color.grey));
-        colours.Add("Black", new Colour(Color.black));
-        colours.Add("Orange", new Colour(new Color(160, 130, 0)));
-        colours.Add("Yellow", new Colour(Color.yellow));
-        colours.Add("White", new Colour(Color.white));
-        colours.Add("Pink",  new Colour(new Color(170, 0, 120)));
+        colours.Add("Blue", new Colour("Blue", Color.blue));
+        colours.Add("Red", new Colour("Red", Color.red));
+        colours.Add("Green", new Colour("Green", Color.green));
+        colours.Add("Purple", new Colour("Purple", new Color(160, 0, 160)));
+        colours.Add("Grey", new Colour("Grey", Color.grey));
+        colours.Add("Black", new Colour("Black", Color.black));
+        colours.Add("Orange", new Colour("Orange", new Color(160, 130, 0)));
+        colours.Add("Yellow", new Colour("Yellow", Color.yellow));
+        colours.Add("White", new Colour("White", Color.white));
+        colours.Add("Pink",  new Colour("Pink", new Color(170, 0, 120)));
     }
 
     // Generate all interactions
