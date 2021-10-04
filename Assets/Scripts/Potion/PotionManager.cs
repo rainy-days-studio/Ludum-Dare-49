@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PotionManager : Manager<PotionManager>
 {
@@ -12,6 +13,11 @@ public class PotionManager : Manager<PotionManager>
     private ColourGenerator colourGenerator;
     // Max number of ingredients
     private int maxIngredients;
+    // Text for board
+    [SerializeField]
+    private Text maxIngredientsText;
+    [SerializeField]
+    private Text usedIngredientsText;
 
     // Intialise variables
     void Start()
@@ -38,11 +44,15 @@ public class PotionManager : Manager<PotionManager>
         ColourResult check = ColourGraph.Instance.checkColourPath(potionColour.getName(), targetColour.getName());
 
         maxIngredients = Mathf.RoundToInt(((float) check.pathLength * 4) / (((float)check.numOfIncoming) / 3));
+
+        maxIngredientsText.text = maxIngredients.ToString();
+        usedIngredientsText.text = "0";
     }
 
     // Check if the potion is correct or over the max
     public void checkPotion(Colour colour, int ingredients)
     {
+        usedIngredientsText.text = ingredients.ToString();
         if (targetColour == colour || ingredients >= maxIngredients)
         {
             activePotion.finish();
