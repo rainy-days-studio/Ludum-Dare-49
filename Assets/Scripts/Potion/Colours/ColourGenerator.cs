@@ -36,6 +36,7 @@ public class ColourGenerator : Manager<ColourGenerator>
         colours.Add("Orange", new Colour(new Color(160, 130, 0)));
         colours.Add("Yellow", new Colour(Color.yellow));
         colours.Add("White", new Colour(Color.white));
+        colours.Add("Pink",  new Colour(new Color(170, 0, 120)));
     }
 
     // Generate all interactions
