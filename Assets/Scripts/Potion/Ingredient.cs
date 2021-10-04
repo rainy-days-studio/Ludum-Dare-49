@@ -18,10 +18,21 @@ public class Ingredient
         this.colour = colour;
     }
 
+    // Get the colour this ingredient outputs
     public Colour getPotionEffect()
     {
         Colour outputColour = colour;
 
         return colour;
+    }
+
+    public string getName()
+    {
+        return name;
+    }
+
+    public Sprite getSprite()
+    {
+        return sprite;
     }
 }

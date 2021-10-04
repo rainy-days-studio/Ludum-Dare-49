@@ -36,6 +36,7 @@ public class ColourGenerator : Manager<ColourGenerator>
         colours.Add("Orange", new Colour(new Color(160, 130, 0)));
         colours.Add("Yellow", new Colour(Color.yellow));
         colours.Add("White", new Colour(Color.white));
+        colours.Add("Pink",  new Colour(new Color(170, 0, 120)));
     }
 
     // Generate all interactions
@@ -112,5 +113,12 @@ public class ColourGenerator : Manager<ColourGenerator>
     public List<ColourChange> getInteractions()
     {
         return interactions;
+    }
+
+    // Get a random colour
+    public Colour getRandomColour()
+    {
+        string[] colourNames = colours.Keys.ToArray();
+        return colours[colourNames[Random.Range(0, colourNames.Length)]];
     }
 }

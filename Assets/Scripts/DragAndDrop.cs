@@ -13,30 +13,67 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     private PhysicsManager physics;
     // Rigidbody
     private Rigidbody2D rigidBody;
+    // Colliding with table
+    private bool touchingTable;
+    // Being dragged
+    private bool dragging;
 
     // Initialise variables
-    private void Start()
+    private void Awake()
     {
         transform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
-        physics = PhysicsManager.Instance;
         rigidBody = GetComponent<Rigidbody2D>();
-        rigidBody.gravityScale = physics.getGravity();
         rigidBody.freezeRotation = true;
+        touchingTable = true;
+        dragging = false;
+    }
+
+    private void Start()
+    {
+        physics = PhysicsManager.Instance;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        Vector2 position = transform.anchoredPosition + eventData.delta / canvas.scaleFactor;
+
+        position.x = Mathf.Clamp(position.x, -physics.checkHorizontalOffset(), physics.checkHorizontalOffset());
+        position.y = Mathf.Clamp(position.y, -physics.checkVerticalOffset(), physics.checkVerticalOffset());
+
+        transform.anchoredPosition = (position / canvas.scaleFactor);
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        dragging = true;
         rigidBody.gravityScale = 0;
         rigidBody.velocity = Vector2.zero;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        rigidBody.gravityScale = physics.getGravity();
+        dragging = false;
+        if (!touchingTable)
+            rigidBody.gravityScale = physics.getGravity();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Table"))
+        {
+            touchingTable = true;
+            rigidBody.gravityScale = 0;
+            rigidBody.velocity = Vector2.zero;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Table"))
+        {
+            touchingTable = false;
+            if (!dragging)
+                rigidBody.gravityScale = physics.getGravity();
+        }
     }
 }
