@@ -33,8 +33,6 @@ public class Potion : MonoBehaviour, IDropHandler
 
         liquid.color = colour.getUnityColour();
 
-        dragAndDrop.setReset();
-
         gameObject.SetActive(true);
     }
 
@@ -54,7 +52,7 @@ public class Potion : MonoBehaviour, IDropHandler
     // When potion is finished deactivate
     public void finish()
     {
-
+        dragAndDrop.setReset();
         gameObject.SetActive(false);
     }
 
