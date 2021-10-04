@@ -1102,6 +1102,36 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &789923311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2430055328179750258, guid: e0614b15120933b4bb7734f4ab182304, type: 3}
+  m_PrefabInstance: {fileID: 1722000820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &789923318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789923311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9bf58d6bc95fd448c8ccaf7cc2b9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Bubbles
+    clip: {fileID: 8300000, guid: 430341a814df99d47af98a0ebd2d0f14, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Shatter
+    clip: {fileID: 8300000, guid: 04d5a4ee0160a084d9666d779520811a, type: 3}
+    volume: 0.571
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!1 &842167830
 GameObject:
   m_ObjectHideFlags: 0
