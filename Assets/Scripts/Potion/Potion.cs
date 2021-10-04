@@ -65,10 +65,23 @@ public class Potion : MonoBehaviour, IDropHandler
     }
 
     // Set object to no longer interact
-    public void stopInteracting()
+    private void stopInteraction()
     {
         interactable = false;
         dragAndDrop.enabled = false;
+    }
+
+    // When the potion is correct
+    public void win()
+    {
+        stopInteraction();
+
+    }
+
+    // When the potion is destroyed
+    public void lose()
+    {
+        stopInteraction();
         animator.enabled = true;
     }
 

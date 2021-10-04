@@ -66,7 +66,7 @@ public class PotionManager : Manager<PotionManager>
         }
         if (ingredients >= maxIngredients)
         {
-            activePotion.stopInteracting();
+            activePotion.lose();
             score--;
             scoreText.text = score.ToString();
             AudioManager.instance.Play("Shatter");

@@ -166,6 +166,8 @@ public class ColourGraph : Manager<ColourGraph>
                 }
             }
 
+            Debug.Log(smallestIndex);
+
             spt[smallestIndex] = true;
 
             // Update distances for all adjacent nodes
