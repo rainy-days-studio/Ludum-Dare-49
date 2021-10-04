@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class HighlightObj : MonoBehaviour
 {
     [SerializeField]
+    private float outlineThickness = 0.1f;
+    [SerializeField]
     private bool bounce;
     [SerializeField]
     private float bounceFactor;
@@ -24,7 +26,7 @@ public class HighlightObj : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0.1f);
+        Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), outlineThickness);
         /*
         if (bounce)
             Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);

@@ -18,11 +18,16 @@ public class PotionManager : Manager<PotionManager>
     private Text maxIngredientsText;
     [SerializeField]
     private Text usedIngredientsText;
+    [SerializeField]
+    private Text scoreText;
+    // Score
+    private int score;
 
     // Intialise variables
     void Start()
     {
         colourGenerator = ColourGenerator.Instance;
+        score = 0;
     }
 
     // Activate a potion for use
@@ -54,8 +59,16 @@ public class PotionManager : Manager<PotionManager>
     {
         usedIngredientsText.text = ingredients.ToString();
         if (targetColour == colour)
+        {
             activePotion.finish();
+            score++;
+            scoreText.text = score.ToString();
+        }
         if (ingredients >= maxIngredients)
+        {
             activePotion.stopInteracting();
+            score--;
+            scoreText.text = score.ToString();
+        }
     }
 }
