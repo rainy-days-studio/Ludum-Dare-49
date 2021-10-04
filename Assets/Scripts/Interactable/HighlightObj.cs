@@ -20,7 +20,6 @@ public class HighlightObj : MonoBehaviour
         Renderer.material = mat;
         Renderer.material.SetFloat(Shader.PropertyToID("_OutlineThickness"), 0f);
         Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);
-
     }
 
     private void OnMouseEnter()
@@ -42,6 +41,7 @@ public class HighlightObj : MonoBehaviour
         */
     }
 
+    // When clicked disable bouncing
     private void OnMouseDown()
     {
         if (bounce)
@@ -49,5 +49,12 @@ public class HighlightObj : MonoBehaviour
             bounce = false;
             Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), 0);
         }
-    } 
+    }
+
+    // When reset reactivate bouncing
+    public void reset()
+    {
+        bounce = true;
+        Renderer.material.SetFloat(Shader.PropertyToID("_BounceFactor"), bounceFactor);
+    }
 }

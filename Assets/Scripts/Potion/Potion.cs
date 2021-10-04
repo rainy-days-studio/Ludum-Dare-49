@@ -13,13 +13,15 @@ public class Potion : MonoBehaviour, IDropHandler
     private Colour colour;
     // Current fizziness of the potion
     private PotionFizziness fizziness;
-
     // Number of ingredients
     private int ingredients;
+    // Drag and drop component
+    private DragAndDrop dragAndDrop;
 
     // Set variables
     private void Awake()
     {
+        dragAndDrop = GetComponent<DragAndDrop>();
         gameObject.SetActive(false);
     }
 
@@ -30,6 +32,8 @@ public class Potion : MonoBehaviour, IDropHandler
         ingredients = 0;
 
         liquid.color = colour.getUnityColour();
+
+        dragAndDrop.setReset();
 
         gameObject.SetActive(true);
     }
@@ -50,6 +54,7 @@ public class Potion : MonoBehaviour, IDropHandler
     // When potion is finished deactivate
     public void finish()
     {
+
         gameObject.SetActive(false);
     }
 

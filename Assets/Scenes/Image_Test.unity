@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &104249510
 Rigidbody2D:
   serializedVersion: 4
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &318451393
 Rigidbody2D:
   serializedVersion: 4
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &767246529
 Rigidbody2D:
   serializedVersion: 4
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &842167838
 Rigidbody2D:
   serializedVersion: 4
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &1035700910
 Rigidbody2D:
   serializedVersion: 4
@@ -1520,7 +1520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &1228809327
 Rigidbody2D:
   serializedVersion: 4
@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &1303037812
 Rigidbody2D:
   serializedVersion: 4
@@ -1883,7 +1883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.3}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 49}
+  m_AnchoredPosition: {x: 15, y: 49}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347514704
@@ -2488,7 +2488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &1745204264
 Rigidbody2D:
   serializedVersion: 4
@@ -2663,7 +2663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 1
+  touchingTableDefault: 1
 --- !u!114 &1746709161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2914,7 +2914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &1848744893
 Rigidbody2D:
   serializedVersion: 4
@@ -3096,7 +3096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 1
+  touchingTableDefault: 1
 --- !u!50 &1886651005
 Rigidbody2D:
   serializedVersion: 4
@@ -3432,7 +3432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 0
+  touchingTableDefault: 0
 --- !u!50 &1931290307
 Rigidbody2D:
   serializedVersion: 4
@@ -3535,7 +3535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c53d6c96ae3c540b4cfdffe2c437c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingTable: 1
+  touchingTableDefault: 1
 --- !u!50 &2050136260
 Rigidbody2D:
   serializedVersion: 4

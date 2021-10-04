@@ -7,12 +7,16 @@ public class IngredientObject : MonoBehaviour
 {
     // Ingredient this object uses
     private Ingredient ingredient;
+    // Image of the object
     private Image image;
+    // Drag and drop of this object
+    private DragAndDrop dragAndDrop;
 
     // Initialise variables
     void Awake()
     {
         image = GetComponent<Image>();
+        dragAndDrop = GetComponent<DragAndDrop>();
         gameObject.SetActive(false);
     }
 
@@ -27,7 +31,7 @@ public class IngredientObject : MonoBehaviour
     // Put this ingredient in the potion consuming it
     public Ingredient consume()
     {
-        gameObject.SetActive(false);
+        dragAndDrop.setReset();
         return ingredient;
     }
 }
