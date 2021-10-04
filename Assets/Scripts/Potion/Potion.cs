@@ -41,7 +41,15 @@ public class Potion : MonoBehaviour
 
         liquid.color = colour.getUnityColour();
 
+        PotionManager.Instance.checkPotion(colour, ingredients);
+
         return false;
+    }
+
+    // When potion is finished deactivate
+    public void finish()
+    {
+        gameObject.SetActive(false);
     }
 
     // Stir the potion

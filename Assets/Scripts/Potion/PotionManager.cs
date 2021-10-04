@@ -8,7 +8,10 @@ public class PotionManager : Manager<PotionManager>
     [SerializeField]
     private Potion[] potions;
     private Potion activePotion;
+    private Colour targetColour;
     private ColourGenerator colourGenerator;
+    // Max number of ingredients
+    private int maxIngredients;
 
     // Intialise variables
     void Start()
@@ -19,7 +22,31 @@ public class PotionManager : Manager<PotionManager>
     // Activate a potion for use
     public void activatePotion()
     {
+        Colour potionColour = colourGenerator.getRandomColour();
+
+
+        while (true)
+        {
+            targetColour = colourGenerator.getRandomColour();
+            if (targetColour != potionColour)
+                break;
+        }
+
         activePotion = potions[Random.Range(0, potions.Length)];
-        activePotion.init(colourGenerator.getRandomColour());
+        activePotion.init(potionColour);
+
+        ColourResult check = ColourGraph.Instance.checkColourPath(potionColour.getName(), targetColour.getName());
+
+        maxIngredients = Mathf.RoundToInt((check.pathLength * 4) / (check.numOfIncoming / 3));
+    }
+
+    // Check if the potion is correct or over the max
+    public void checkPotion(Colour colour, int ingredients)
+    {
+        if (targetColour == colour || ingredients >= maxIngredients)
+        {
+            activePotion.finish();
+            activatePotion();
+        }
     }
 }
