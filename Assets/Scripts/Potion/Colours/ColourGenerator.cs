@@ -13,13 +13,17 @@ public class ColourGenerator : Manager<ColourGenerator>
     private ColourGraph colourGraph;
 
     // Intialise variables
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
     private void Start()
     {
         colourGraph = ColourGraph.Instance;
 
         generateColours();
         generateInteractions();
-
         IngredientGenerator.Instance.init();
     }
     
@@ -30,13 +34,13 @@ public class ColourGenerator : Manager<ColourGenerator>
         colours.Add("Blue", new Colour("Blue", Color.blue));
         colours.Add("Red", new Colour("Red", Color.red));
         colours.Add("Green", new Colour("Green", Color.green));
-        colours.Add("Purple", new Colour("Purple", new Color(160, 0, 160)));
+        colours.Add("Purple", new Colour("Purple", new Color(0.625f, 0, 0.625f)));
         colours.Add("Grey", new Colour("Grey", Color.grey));
         colours.Add("Black", new Colour("Black", Color.black));
-        colours.Add("Orange", new Colour("Orange", new Color(160, 130, 0)));
+        colours.Add("Orange", new Colour("Orange", new Color(1, 0.64f, 0)));
         colours.Add("Yellow", new Colour("Yellow", Color.yellow));
         colours.Add("White", new Colour("White", Color.white));
-        colours.Add("Pink",  new Colour("Pink", new Color(170, 0, 120)));
+        colours.Add("Pink",  new Colour("Pink", new Color(0.96f, 0.375f, 0.98f)));
     }
 
     // Generate all interactions

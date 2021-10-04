@@ -8,7 +8,11 @@ public class PotionManager : Manager<PotionManager>
     // Potions to use
     [SerializeField]
     private Potion[] potions;
+    // Target Potions to use
+    [SerializeField]
+    private TargetPotion[] targetPotions;
     private Potion activePotion;
+    private TargetPotion activeTargetPotion;
     private Colour targetColour;
     private ColourGenerator colourGenerator;
     // Max number of ingredients
@@ -24,17 +28,21 @@ public class PotionManager : Manager<PotionManager>
     private int score;
 
     // Intialise variables
-    void Start()
+    public override void Awake()
+    {
+        base.Awake();
+        score = 0;
+    }
+
+    private void Start()
     {
         colourGenerator = ColourGenerator.Instance;
-        score = 0;
     }
 
     // Activate a potion for use
     public void activatePotion()
     {
         Colour potionColour = colourGenerator.getRandomColour();
-
 
         while (true)
         {
@@ -43,12 +51,17 @@ public class PotionManager : Manager<PotionManager>
                 break;
         }
 
-        activePotion = potions[Random.Range(0, potions.Length)];
+        int index = Random.Range(0, potions.Length);
+
+        activePotion = potions[index];
         activePotion.init(potionColour);
+
+        activeTargetPotion = targetPotions[index];
+        activeTargetPotion.setTargetColour(targetColour);
 
         ColourResult check = ColourGraph.Instance.checkColourPath(potionColour.getName(), targetColour.getName());
 
-        maxIngredients = Mathf.RoundToInt(((float) check.pathLength * 4) / (((float)check.numOfIncoming) / 3));
+        maxIngredients = Mathf.RoundToInt(((float) check.pathLength * 4) / (((float)check.numOfIncoming) / 2));
 
         maxIngredientsText.text = maxIngredients.ToString();
         usedIngredientsText.text = "0";
@@ -60,16 +73,18 @@ public class PotionManager : Manager<PotionManager>
         usedIngredientsText.text = ingredients.ToString();
         if (targetColour == colour)
         {
-            activePotion.finish();
+            activePotion.win();
             score++;
             scoreText.text = score.ToString();
+            activeTargetPotion.disable();
         }
-        if (ingredients >= maxIngredients)
+        else if (ingredients >= maxIngredients)
         {
             activePotion.lose();
             score--;
             scoreText.text = score.ToString();
-            AudioManager.instance.Play("Shatter");
+            AudioManager.Instance.Play("Shatter");
+            activeTargetPotion.disable();
         }
     }
 }

@@ -22,6 +22,8 @@ public class Potion : MonoBehaviour, IDropHandler
     private bool interactable;
     // Animation to play when smashing
     private Animator animator;
+    // Text for colour
+    private Text text;
 
     // Set variables
     private void Awake()
@@ -32,6 +34,8 @@ public class Potion : MonoBehaviour, IDropHandler
         dragAndDrop = GetComponent<DragAndDrop>();
         animator = GetComponent<Animator>();
         animator.enabled = false;
+        text = GetComponentInChildren<Text>();
+        text.enabled = false;
         interactable = false;
         dragAndDrop.enabled = false;
         gameObject.SetActive(false);
@@ -44,6 +48,8 @@ public class Potion : MonoBehaviour, IDropHandler
         ingredients = 0;
 
         liquid.color = colour.getUnityColour();
+
+        text.text = colour.getName();
 
         interactable = true;
 
@@ -59,8 +65,10 @@ public class Potion : MonoBehaviour, IDropHandler
 
         liquid.color = colour.getUnityColour();
 
+        text.text = colour.getName();
+
         PotionManager.Instance.checkPotion(colour, ingredients);
-        AudioManager.instance.Play("Bubbles");
+        AudioManager.Instance.Play("Bubbles_3");
         return false;
     }
 
@@ -75,7 +83,14 @@ public class Potion : MonoBehaviour, IDropHandler
     public void win()
     {
         stopInteraction();
+        AudioManager.Instance.Play("Win");
+        StartCoroutine(WinWait());
+    }
 
+    private IEnumerator WinWait()
+    {
+        yield return new WaitForSeconds(2);
+        finish();
     }
 
     // When the potion is destroyed
@@ -101,5 +116,16 @@ public class Potion : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag.tag.Equals("Ingredient") && interactable)
             addIngredient(eventData.pointerDrag.GetComponent<IngredientObject>().consume());
+    }
+
+    // Make text appear depending on whether the mouse is over
+    private void OnMouseEnter()
+    {
+        text.enabled = true;
+    }
+
+    private void OnMouseExit()
+    {
+        text.enabled = false;
     }
 }

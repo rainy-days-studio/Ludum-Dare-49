@@ -22,8 +22,9 @@ public class IngredientGenerator : Manager<IngredientGenerator>
     private List<Ingredient> ingredients;
 
     // On script awake read text
-    public void Start()
+    public override void Awake()
     {
+        base.Awake();
         getNamesFromText();
     }
 

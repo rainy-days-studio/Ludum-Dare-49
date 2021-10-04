@@ -3,23 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Manager<AudioManager>
 {
-    public Sound[] sounds;
-    public static AudioManager instance;
+    [SerializeField]
+    private Sound[] sounds;
 
-    private void Awake()
+    public override void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
+        base.Awake();
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -38,6 +29,5 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
-
     }
 }

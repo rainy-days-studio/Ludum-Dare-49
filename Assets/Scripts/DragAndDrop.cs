@@ -58,7 +58,7 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         position.x = Mathf.Clamp(position.x, -physics.checkHorizontalOffset(), physics.checkHorizontalOffset());
         position.y = Mathf.Clamp(position.y, -physics.checkVerticalOffset(), physics.checkVerticalOffset());
 
-        transform.anchoredPosition = (position / canvas.scaleFactor);
+        transform.anchoredPosition = position;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

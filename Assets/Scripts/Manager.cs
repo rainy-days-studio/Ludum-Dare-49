@@ -7,12 +7,12 @@ public class Manager<T> : MonoBehaviour where T : MonoBehaviour
     private static T _Instance;
     public static T Instance { get { return _Instance; } }
 
-    void Awake()
+    public virtual void Awake()
     {
         _Instance = (T)FindObjectOfType(typeof(T));
     }
 
-    void OnDestroy()
+    public void OnDestroy()
     {
         _Instance = null;
     }
