@@ -42,14 +42,21 @@ public class PotionManager : Manager<PotionManager>
     // Activate a potion for use
     public void activatePotion()
     {
-        Colour potionColour = colourGenerator.getRandomColour();
-
-        while (true)
+        ColourResult check;
+        Colour potionColour;
+        do
         {
-            targetColour = colourGenerator.getRandomColour();
-            if (targetColour != potionColour)
-                break;
-        }
+            potionColour = colourGenerator.getRandomColour();
+
+            while (true)
+            {
+                targetColour = colourGenerator.getRandomColour();
+                if (targetColour != potionColour)
+                    break;
+            }
+
+            check = ColourGraph.Instance.checkColourPath(potionColour.getName(), targetColour.getName());
+        } while (check.pathLength == -1);
 
         int index = Random.Range(0, potions.Length);
 
@@ -59,7 +66,6 @@ public class PotionManager : Manager<PotionManager>
         activeTargetPotion = targetPotions[index];
         activeTargetPotion.setTargetColour(targetColour);
 
-        ColourResult check = ColourGraph.Instance.checkColourPath(potionColour.getName(), targetColour.getName());
 
         maxIngredients = Mathf.RoundToInt(((float) check.pathLength * 4) / (((float)check.numOfIncoming) / 2));
 

@@ -166,9 +166,16 @@ public class ColourGraph : Manager<ColourGraph>
                 }
             }
 
-            Debug.Log(smallestIndex);
+            // If graph is not strongly connected then return -1
+            try
+            {
 
-            spt[smallestIndex] = true;
+                spt[smallestIndex] = true;
+            }
+            catch(IndexOutOfRangeException e)
+            {
+                return -1;
+            }
 
             // Update distances for all adjacent nodes
             for (int i = 0; i < nodes.Length; i++)
