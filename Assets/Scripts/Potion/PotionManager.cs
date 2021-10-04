@@ -69,6 +69,7 @@ public class PotionManager : Manager<PotionManager>
             activePotion.stopInteracting();
             score--;
             scoreText.text = score.ToString();
+            AudioManager.instance.Play("Shatter");
         }
     }
 }
