@@ -60,7 +60,7 @@ public class Potion : MonoBehaviour, IDropHandler
         liquid.color = colour.getUnityColour();
 
         PotionManager.Instance.checkPotion(colour, ingredients);
-
+        AudioManager.instance.Play("Bubbles");
         return false;
     }
 
